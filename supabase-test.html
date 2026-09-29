@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>FourthHaven Supabase Test</title>
+</head>
+
+<body>
+  <h1>FourthHaven Connection Test</h1>
+  <h2 id="status">Connecting...</h2>
+  <p id="message">Waiting for Supabase...</p>
+
+  <script>
+    const SUPABASE_URL = "https://agizjehzxwgpcjteurjd.supabase.co
+E";
+    const SUPABASE_KEY = "sb_publishable_WvA_6-rloSQ8tg8YU_J_Pw_GPj2spbw";
+
+    async function testConnection() {
+      const status = document.getElementById("status");
+      const message = document.getElementById("message");
+
+      try {
+        const response = await fetch(
+          SUPABASE_URL + "/rest/v1/sync_test?select=message&order=id.desc&limit=1",
+          {
+            headers: {
+              "apikey": SUPABASE_KEY
+            }
+          }
+        );
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(response.status + " " + errorText);
+        }
+
+        const data = await response.json();
+
+        if (data.length === 0) {
+          status.textContent = "CONNECTED ✅";
+          message.textContent = "Connected, but sync_test is empty.";
+          return;
+        }
+
+        status.textContent = "CONNECTED TO SUPABASE ✅";
+        message.textContent = "Database says: " + data[0].message;
+
+      } catch (error) {
+        status.textContent = "CONNECTION FAILED ❌";
+        message.textContent = error.message;
+        console.error(error);
+      }
+    }
+
+    testConnection();
+  </script>
+</body>
+</html>
