@@ -1,0 +1,27 @@
+FourthHaven Team Hub
+Version: V19 — Responsive Visual Overhaul
+Build date: 2026-09-29
+
+Included:
+- Complete V19 HTML structure
+- Complete V19 CSS
+- Complete V19 JavaScript
+- Desktop responsive layout
+- Tablet responsive layout
+- Phone responsive layout
+- Manager Override / Control UI
+- Employee shift/task system
+- 8-second task timing UI and task locks
+- Rapid task-completion warning system
+- Live payroll UI
+- Commission reporting UI
+- Schedule Center
+- CEO Message Hub
+- Photo Collection
+- Messages
+- Product / Inventory Center
+- Resources / Training
+- Manager Action Center
+- Employee performance/production UI
+- Shift handoff / completion presentation
+- Standalone V19 source backup
